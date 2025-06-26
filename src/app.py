@@ -38,3 +38,26 @@ def update_item(item_id:int, item:Item):
         else None, item_id),)
     conn.commit()
     return item
+
+
+@app.delete("/items/{item_id}")
+def delete_item(item_id:int, item:Item):
+    """API route to delete an item from database using item id
+    
+    Parameters
+    ----------
+    item_id : int
+        Item unique identification
+    item : Item
+        The item itself following the Item model
+
+    Returns
+    -------
+    Item
+        The item after it has been removed from database
+    """
+    conn = get_db()
+    conn.execute(
+        "DELETE from items where id=?",(item_id),)
+    conn.commit()
+    return {"message": f"Item id {item_id} deleted"}
