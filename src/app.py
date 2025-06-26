@@ -43,7 +43,7 @@ def update_item(item_id:int, item:Item):
 @app.delete("/items/{item_id}")
 def delete_item(item_id:int, item:Item):
     """API route to delete an item from database using item id
-    
+     *test text to represent adding documentation step of course*
     Parameters
     ----------
     item_id : int
